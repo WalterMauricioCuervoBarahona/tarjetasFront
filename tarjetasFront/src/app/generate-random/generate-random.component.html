@@ -1,0 +1,36 @@
+<mat-card class="mat-border-radius-1rm mat-elevation-z4">
+    <mat-card-content>
+        <h3>Generaciónde Aleatoria</h3>
+    </mat-card-content>
+</mat-card>
+<br><br>
+<form [formGroup]="formGenerate">
+    <div class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>ingrese la cantidad de resgistros</mat-label>
+            <input matInput formControlName="ammount" type="number" placeholder="10000" autocomplete="off">
+        </mat-form-field>
+    </div>
+
+    <br><br>
+    <mat-radio-group aria-label="Select an option" formControlName="padded">
+        <mat-radio-button value="1">Recargas</mat-radio-button>
+        <mat-radio-button value="2">Usos</mat-radio-button>
+    </mat-radio-group>
+    <br><br>
+    <div>
+        <mat-label>Mes: </mat-label><br>
+        <mat-form-field class="select-mes">
+            <mat-label>Seleccione una opción</mat-label>
+            <mat-select formControlName="month">
+                <mat-option *ngFor="let month of listMont" [value]="month.valor">
+                    {{month.mes}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <br><br>
+</form>
+<br><br>
+<div class="mat-jc-center mat-d-flex">
+    <button mat-raised-button class="mat-ml-20" color="primary" (click)="generateRandom()">Generar</button>
+</div>
