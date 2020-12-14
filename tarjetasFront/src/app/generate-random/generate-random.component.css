@@ -11,3 +11,14 @@
 .mat-radio-button~.mat-radio-button {
     margin-left: 16px;
 }
+
+.backgournd {
+    background-color: black;
+}
+
+.center {
+    text-align: center;
+    justify-content: center;
+    font-size: large;
+    color: white;
+}

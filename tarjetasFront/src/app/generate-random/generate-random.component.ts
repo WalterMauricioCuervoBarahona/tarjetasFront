@@ -35,7 +35,7 @@ export class GenerateRandomComponent implements OnInit {
 
   public generateRandom(): void {
     let ammount = this.formGenerate.controls.ammount.value;
-    let padded = this.formGenerate.controls.padded.value;
+    let padded = this.formGenerate.controls.padded.value == 1 ? false : true;
     let month = this.formGenerate.controls.month.value;
     console.log(ammount, padded, month);
     let object = {
@@ -43,7 +43,7 @@ export class GenerateRandomComponent implements OnInit {
       ammount: ammount,
       month: month
     }
-    this.generateService.setGenerateAction(JSON.stringify(object)).then(
+    this.generateService.setGenerateAction(object).then(
       respuesta => {
         console.log('Respuesta', respuesta);
       }

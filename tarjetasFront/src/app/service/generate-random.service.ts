@@ -10,18 +10,16 @@ import { HttpParams } from '@angular/common/http';
 export class generateRandom {
 
   
-  private GENERATE_RANDOM: string =  'localhost:9090/transaction/file-generation';
+  private GENERATE_RANDOM: string =  'http://localhost:9090/transaction/file-generation';
 
 
   constructor(private httpHelperService: HttpHelperService) { }
 
   setGenerateAction(object: any): Promise<[any]> {
-    let formData = new FormData();
-    formData.append("json", object);
     return new Promise((resolve, reject) => {
       this.httpHelperService.postRequest(
         this.GENERATE_RANDOM,
-        formData,
+        object,
         resolve,
         reject
       );
